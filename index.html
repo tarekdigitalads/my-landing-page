@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarek Sa3d - Digital Marketing Expert</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #00d4ff;
+            --secondary: #ff006e;
+            --tertiary: #ffd60a;
+            --dark-bg: #0a0e27;
+            --darker-bg: #050812;
+            --text-light: #f5f5f5;
+            --text-muted: #b0b0b0;
+            --accent-glass: rgba(0, 212, 255, 0.1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--darker-bg) 0%, #1a1f3a 100%);
+            color: var(--text-light);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 50%, rgba(0, 212, 255, 0.05) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(255, 0, 110, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 14, 39, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .logo-circle {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            color: var(--darker-bg);
+            font-size: 1.3rem;
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        .cta-btn {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--darker-bg);
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+        }
+
+        main {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 6rem 2rem 2rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            background: linear-gradient(135deg, var(--primary), var(--secondary), var(--tertiary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        .btn-primary, .btn-secondary {
+            padding: 1rem 2.5rem;
+            font-size: 1rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--darker-bg);
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 40px rgba(0, 212, 255, 0.5);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--accent-glass);
+            transform: translateY(-5px);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 6rem 2rem;
+            background: linear-gradient(180deg, rgba(0, 212, 255, 0.03) 0%, transparent 100%);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.05) 0%, rgba(255, 0, 110, 0.05) 100%);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--primary), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(255, 0, 110, 0.1) 100%);
+            box-shadow: 0 10px 40px rgba(0, 212, 255, 0.2);
+        }
+
+        .service-card:hover::before {
+            opacity: 0.2;
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* Why Digital Marketing */
+        .why-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(180deg, transparent 0%, rgba(255, 0, 110, 0.03) 100%);
+        }
+
+        .why-content {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(0, 212, 255, 0.05);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 12px;
+            padding: 3rem;
+        }
+
+        .why-content h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .why-content p {
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .highlight {
+            color: var(--secondary);
+            font-weight: 600;
+        }
+
+        /* Google Ads Focus */
+        .google-ads {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.02) 0%, rgba(255, 215, 10, 0.02) 100%);
+        }
+
+        .google-ads-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .google-ads-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .feature-box {
+            background: linear-gradient(135deg, rgba(255, 215, 10, 0.1) 0%, rgba(0, 212, 255, 0.1) 100%);
+            border-left: 4px solid var(--tertiary);
+            padding: 1.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-box:hover {
+            transform: translateX(10px);
+            border-left-color: var(--primary);
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.15) 0%, rgba(255, 215, 10, 0.1) 100%);
+        }
+
+        .feature-box h4 {
+            color: var(--tertiary);
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-box p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Portfolio Section */
+        .portfolio {
+            padding: 6rem 2rem;
+            background: linear-gradient(180deg, rgba(255, 0, 110, 0.02) 0%, transparent 100%);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            margin-top: 2rem;
+        }
+
+        .portfolio-item {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.08) 0%, rgba(255, 0, 110, 0.08) 100%);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .portfolio-item:hover {
+            transform: scale(1.05);
+            border-color: var(--primary);
+            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.25);
+        }
+
+        .portfolio-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+
+        .portfolio-content {
+            padding: 1.5rem;
+        }
+
+        .portfolio-content h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .portfolio-content p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .portfolio-meta {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(0, 212, 255, 0.1);
+            font-size: 0.85rem;
+            color: var(--secondary);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.05) 0%, rgba(255, 0, 110, 0.05) 100%);
+        }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-method {
+            background: rgba(0, 212, 255, 0.05);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .contact-method:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2);
+        }
+
+        .contact-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-method h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-method a, .contact-method p {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .contact-method a:hover {
+            color: var(--secondary);
+        }
+
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 2rem;
+            left: 2rem;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #25d366, #128c7e);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            text-decoration: none;
+            color: white;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.1) translateY(-5px);
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.6);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--darker-bg), #1a1f3a);
+            border-top: 1px solid rgba(0, 212, 255, 0.1);
+            padding: 3rem 2rem;
+            text-align: center;
+            color: var(--text-muted);
+        }
+
+        footer p {
+            margin-bottom: 1rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .service-card {
+            animation: fadeInUp 0.6s ease backwards;
+        }
+
+        .service-card:nth-child(1) { animation-delay: 0.1s; }
+        .service-card:nth-child(2) { animation-delay: 0.2s; }
+        .service-card:nth-child(3) { animation-delay: 0.3s; }
+        .service-card:nth-child(4) { animation-delay: 0.4s; }
+        .service-card:nth-child(5) { animation-delay: 0.5s; }
+        .service-card:nth-child(6) { animation-delay: 0.6s; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            nav {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .why-content {
+                padding: 2rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn-primary, .btn-secondary {
+                width: 100%;
+            }
+
+            header {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            .whatsapp-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <div class="logo-circle">TS</div>
+            <span>Tarek Sa3d</span>
+        </div>
+        <nav>
+            <a href="#services">الخدمات</a>
+            <a href="#why">لماذا التسويق الرقمي</a>
+            <a href="#portfolio">أعمالي</a>
+            <a href="#contact">تواصل معي</a>
+            <button class="cta-btn" onclick="scrollToContact()">احجز استشارة</button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>طريق نجاحك يبدأ هنا</h1>
+                <p class="hero-subtitle">
+                    أنا متخصص في التسويق الرقمي والإعلانات الممولة لنمو أعمالك بشكل فعال وقابل للقياس
+                </p>
+                <div class="hero-buttons">
+                    <button class="btn-primary" onclick="scrollToContact()">ابدأ الآن</button>
+                    <button class="btn-secondary">تعرف على المزيد</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Digital Marketing -->
+        <section class="why-section" id="why">
+            <div class="why-content">
+                <h2>🎯 لماذا التسويق الرقمي مهم؟</h2>
+                <p>
+                    في عصرنا الحالي، لا يمكن للشركات والعاملين بالعمل الحر تحقيق نمو حقيقي بدون استراتيجية تسويق رقمي قوية. 
+                    <span class="highlight">التسويق الرقمي يوفر لك إمكانية الوصول إلى ملايين العملاء المحتملين بتكاليف محسوبة بدقة.</span>
+                </p>
+                <p>
+                    من خلال الاستفادة من البيانات والتحليلات، يمكننا تحديد الجمهور المناسب في الوقت المناسب بالرسالة الصحيحة، 
+                    مما يؤدي إلى <span class="highlight">تحسين معدل التحويل وزيادة العائد على الاستثمار (ROI)</span> بشكل ملحوظ.
+                </p>
+                <p>
+                    استراتيجيتي تعتمد على الأرقام والبيانات لتضمين أن كل ريال تنفقه يعود إليك بقيمة أكبر. 
+                    سواء كنت تبحث عن عملاء جدد أو زيادة مبيعاتك أو بناء علامة تجارية قوية، 
+                    أنا هنا لتحويل رؤيتك إلى واقع ملموس.
+                </p>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services" id="services">
+            <h2 class="section-title">خدماتي المتخصصة</h2>
+            <p class="section-subtitle">حلول شاملة لنمو عملك الرقمي</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🔍</div>
+                    <h3>حملات Google Ads المتقدمة</h3>
+                    <p>
+                        إدارة احترافية لحملات البحث والاتصال مع تتبع دقيق باستخدام GA4 و GTM لضمان أقصى عائد استثمار
+                    </p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">📱</div>
+                    <h3>حملات وسائل التواصل الاجتماعي</h3>
+                    <p>
+                        استراتيجيات فعالة على Facebook و Instagram و LinkedIn لزيادة الوعي بالعلامة التجارية والمشاركة
+                    </p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🏢</div>
+                    <h3>بناء وتقوية العلامة التجارية</h3>
+                    <p>
+                        تطوير هويتك البصرية والرسالة التسويقية لتحقيق وجود قوي وتذكر العملاء لعلامتك
+                    </p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🛒</div>
+                    <h3>إدارة المتاجر الإلكترونية</h3>
+                    <p>
+                        تحسين الأداء وزيادة المبيعات والعملاء المتكررين من خلال استراتيجيات E-commerce مثبتة
+                    </p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🎮</div>
+                    <h3>إعلانات الألعاب والتطبيقات</h3>
+                    <p>
+                        متخصص في User Acquisition (UA) لزيادة عدد المستخدمين الفعليين والعائد من التطبيقات والألعاب
+                    </p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🤖</div>
+                    <h3>ظهورك في ردود chatbot الذكية</h3>
+                    <p>
+                        استراتيجية مستقبلية: جعل موقعك يظهر في نتائج ChatGPT وأدوات الذكاء الاصطناعي الأخرى
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Google Ads Focus -->
+        <section class="google-ads">
+            <div class="google-ads-content">
+                <h2 class="section-title">📊 Google Ads: الدفع بالنقرة (Pay Per Click)</h2>
+                <p class="section-subtitle">لا تدفع إلا عند النقر على إعلانك - نموذج دفع فعال وآمن</p>
+                
+                <div class="google-ads-grid">
+                    <div class="feature-box">
+                        <h4>📈 Search Campaigns</h4>
+                        <p>حملات بحث محسّنة للوصول للعملاء في لحظة البحث عن خدماتك</p>
+                    </div>
+                    <div class="feature-box">
+                        <h4>☎️ Call Campaigns</h4>
+                        <p>حملات متخصصة لتحويل الزيارات إلى اتصالات فعلية من عملاء مؤهلين</p>
+                    </div>
+                    <div class="feature-box">
+                        <h4>🎯 Display & Remarketing</h4>
+                        <p>إعادة استهداف المحتملين المهتمين وزيادة معدل التحويل بشكل ملحوظ</p>
+                    </div>
+                    <div class="feature-box">
+                        <h4>📱 App Campaigns</h4>
+                        <p>حملات متخصصة لزيادة تحميلات التطبيق من المستخدمين المناسبين</p>
+                    </div>
+                    <div class="feature-box">
+                        <h4>📊 GA4 & GTM Setup</h4>
+                        <p>تتبع دقيق للتحويلات والعائد الفعلي من كل حملة إعلانية</p>
+                    </div>
+                    <div class="feature-box">
+                        <h4>🔄 Optimization & Testing</h4>
+                        <p>اختبار مستمر وتحسين للحملات لتحقيق أفضل أداء ممكنة</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section class="portfolio" id="portfolio">
+            <h2 class="section-title">📁 أعمالي ونتائجي</h2>
+            <p class="section-subtitle">مشاريع نجحت وحققت نتائج ملموسة</p>
+            
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <div class="portfolio-image">📈</div>
+                    <div class="portfolio-content">
+                        <h3>حملة Google Ads - قطاع التبريد</h3>
+                        <p>زيادة العملاء المحتملين بنسبة 150% مع تقليل التكلفة لكل اتصال</p>
+                        <div class="portfolio-meta">ROI: 320% | 2024</div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-image">📱</div>
+                    <div class="portfolio-content">
+                        <h3>حملة وسائل التواصل الاجتماعي</h3>
+                        <p>بناء مجتمع نشط وزيادة التفاعل بنسبة 200% على منصات Facebook و Instagram</p>
+                        <div class="portfolio-meta">Engagement: +200% | 2024</div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-image">🛒</div>
+                    <div class="portfolio-content">
+                        <h3>تحسين متجر إلكتروني</h3>
+                        <p>زيادة المبيعات الشهرية بنسبة 180% من خلال تحسين الحملات الإعلانية والموقع</p>
+                        <div class="portfolio-meta">Sales: +180% | 2024</div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-image">🎮</div>
+                    <div class="portfolio-content">
+                        <h3>حملة User Acquisition لتطبيق</h3>
+                        <p>جلب 50,000 مستخدم جديد مؤهل بتكلفة اكتساب منخفضة وتفاعل عالي</p>
+                        <div class="portfolio-meta">Users: +50K | 2024</div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-image">🏢</div>
+                    <div class="portfolio-content">
+                        <h3>بناء علامة تجارية B2B</h3>
+                        <p>تطوير استراتيجية تسويق شاملة وزيادة الوعي بالعلامة بين صناع القرار</p>
+                        <div class="portfolio-meta">Brand Awareness: +250% | 2024</div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-image">💰</div>
+                    <div class="portfolio-content">
+                        <h3>تحسين الكفاءة الإعلانية</h3>
+                        <p>تقليل CPC بنسبة 45% وزيادة التحويلات بنسبة 85% لعميل متعدد الخدمات</p>
+                        <div class="portfolio-meta">Efficiency: +85% | 2024</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact" id="contact">
+            <div class="contact-container">
+                <h2 class="section-title">تواصل معي الآن</h2>
+                <p class="section-subtitle">اختر الطريقة الأسهل لك للتواصل</p>
+                
+                <div class="contact-grid">
+                    <div class="contact-method">
+                        <div class="contact-icon">📧</div>
+                        <h3>البريد الإلكتروني</h3>
+                        <a href="mailto:tarek.digitalads@gmail.com">tarek.digitalads@gmail.com</a>
+                    </div>
+
+                    <div class="contact-method">
+                        <div class="contact-icon">💬</div>
+                        <h3>WhatsApp</h3>
+                        <a href="https://wa.me/966572248964">00966572248964</a>
+                    </div>
+
+                    <div class="contact-method">
+                        <div class="contact-icon">🚀</div>
+                        <h3>احجز استشارة</h3>
+                        <p>استشارة مجانية لمناقشة احتياجاتك</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/966572248964" class="whatsapp-btn" title="تواصل عبر WhatsApp">
+        💬
+    </a>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Tarek Sa3d - Digital Marketing Expert</p>
+        <p>استراتيجيات تسويق مثبتة | بيانات دقيقة | نتائج ملموسة</p>
+        <p>جميع الحقوق محفوظة © Tarek Sa3d</p>
+    </footer>
+
+    <script>
+        function scrollToContact() {
+            const contactSection = document.getElementById('contact');
+            contactSection.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
